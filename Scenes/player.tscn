@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://ba3kwjvgwtviw"]
+
+[ext_resource type="Script" path="res://Assets/SpaceshipShooterGodot1/Player/player.gd" id="1_6mbl3"]
+[ext_resource type="Texture2D" uid="uid://2tr5tn0aw3yx" path="res://Assets/SpaceshipShooterGodot1/Player/ship.png" id="1_m4p8x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lv4a"]
+atlas = ExtResource("1_m4p8x")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ue51"]
+atlas = ExtResource("1_m4p8x")
+region = Rect2(32, 24, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eoqg2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lv4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ue51")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkf7c"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_6mbl3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 0)
+sprite_frames = SubResource("SpriteFrames_eoqg2")
+autoplay = "default"
+frame = 1
+frame_progress = 0.843887
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -3)
+shape = SubResource("CircleShape2D_bkf7c")

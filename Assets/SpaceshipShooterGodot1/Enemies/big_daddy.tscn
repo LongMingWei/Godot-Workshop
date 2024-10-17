@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfhmklapxllef"]
+
+[ext_resource type="Texture2D" uid="uid://qr486f6efrdx" path="res://Assets/SpaceshipShooterGodot1/Enemies/enemy-big.png" id="1_kd3li"]
+[ext_resource type="Script" path="res://Assets/SpaceshipShooterGodot1/Enemies/big_daddy.gd" id="1_qxa3l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lahp"]
+atlas = ExtResource("1_kd3li")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq3jj"]
+atlas = ExtResource("1_kd3li")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bxv17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lahp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq3jj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rasuu"]
+radius = 13.0384
+
+[node name="Big Daddy" type="Area2D"]
+rotation = 3.14159
+scale = Vector2(20, 20)
+script = ExtResource("1_qxa3l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bxv17")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_rasuu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

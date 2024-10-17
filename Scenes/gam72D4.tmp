@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://csfyrl4gslpup"]
+
+[ext_resource type="PackedScene" uid="uid://jogyu6amdofk" path="res://Assets/SpaceshipShooterGodot1/Player/player.tscn" id="1_teyp4"]
+[ext_resource type="Texture2D" uid="uid://dfrxi0nn6dfbf" path="res://Assets/SpaceshipShooterGodot1/Backgrounds/Desert/desert-backgorund.png" id="2_cvxjw"]
+[ext_resource type="PackedScene" uid="uid://bwodlfhu0ts4e" path="res://Assets/SpaceshipShooterGodot1/Enemies/enemy_ship_small.tscn" id="3_5wuwl"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_teyp4")]
+motion_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-2, -8)
+
+[node name="Desert-backgorund" type="Sprite2D" parent="Camera2D"]
+z_index = -1
+position = Vector2(16.5, -15)
+scale = Vector2(3.05078, 3.55882)
+texture = ExtResource("2_cvxjw")
+
+[node name="EnemyShipSmall" parent="." instance=ExtResource("3_5wuwl")]
+position = Vector2(2, 177)
+
+[node name="EnemyShipSmall2" parent="." instance=ExtResource("3_5wuwl")]
+position = Vector2(185, 187)

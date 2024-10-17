@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://csfyrl4gslpup"]
+
+[ext_resource type="PackedScene" uid="uid://jogyu6amdofk" path="res://Assets/SpaceshipShooterGodot1/Player/player.tscn" id="1_teyp4"]
+[ext_resource type="Script" path="res://Assets/SpaceshipShooterGodot1/Enemies/enemy_ship_small.gd" id="1_tksx1"]
+[ext_resource type="Texture2D" uid="uid://dfrxi0nn6dfbf" path="res://Assets/SpaceshipShooterGodot1/Backgrounds/Desert/desert-backgorund.png" id="2_cvxjw"]
+[ext_resource type="PackedScene" uid="uid://cfhmklapxllef" path="res://Assets/SpaceshipShooterGodot1/Enemies/big_daddy.tscn" id="3_t5nao"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_tksx1")
+
+[node name="Player" parent="." instance=ExtResource("1_teyp4")]
+position = Vector2(0, 358)
+motion_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-2, -8)
+
+[node name="Desert-backgorund" type="Sprite2D" parent="Camera2D"]
+z_index = -1
+position = Vector2(16.5, -15)
+scale = Vector2(3.05078, 3.55882)
+texture = ExtResource("2_cvxjw")
+
+[node name="Boss" parent="." instance=ExtResource("3_t5nao")]
+position = Vector2(-11, -260)
+
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PlayerHp" type="Label" parent="."]
+offset_left = 225.0
+offset_top = 384.0
+offset_right = 265.0
+offset_bottom = 407.0
+text = "hi"
+
+[node name="BossHp" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
