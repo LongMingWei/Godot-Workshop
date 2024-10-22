@@ -9,6 +9,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !is_instance_valid(player):
+		Engine.time_scale = 0;
+		return;
 	global_position.y += speed * delta
 
 # This function is called when another body enters the area

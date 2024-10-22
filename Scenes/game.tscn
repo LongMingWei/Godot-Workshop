@@ -1,14 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://csfyrl4gslpup"]
+[gd_scene load_steps=6 format=3 uid="uid://csfyrl4gslpup"]
 
 [ext_resource type="PackedScene" uid="uid://jogyu6amdofk" path="res://Assets/SpaceshipShooterGodot1/Player/player.tscn" id="1_teyp4"]
-[ext_resource type="Script" path="res://Assets/SpaceshipShooterGodot1/Enemies/enemy_ship_small.gd" id="1_tksx1"]
 [ext_resource type="Texture2D" uid="uid://dfrxi0nn6dfbf" path="res://Assets/SpaceshipShooterGodot1/Backgrounds/Desert/desert-backgorund.png" id="2_cvxjw"]
 [ext_resource type="PackedScene" uid="uid://cfhmklapxllef" path="res://Assets/SpaceshipShooterGodot1/Enemies/big_daddy.tscn" id="3_t5nao"]
 [ext_resource type="Script" path="res://Scripts/score.gd" id="5_h03si"]
 [ext_resource type="FontFile" uid="uid://bhgpfegjwds7g" path="res://Assets/SpaceshipShooterGodot1/Fonts/PixelOperator8.ttf" id="5_rn570"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_tksx1")
 
 [node name="Player" parent="." instance=ExtResource("1_teyp4")]
 position = Vector2(0, 358)
