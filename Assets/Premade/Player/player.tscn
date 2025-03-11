@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://jogyu6amdofk"]
+
+[ext_resource type="Script" uid="uid://bex7d36t0vgbr" path="res://Assets/Premade/Player/player.gd" id="1_logjw"]
+[ext_resource type="Texture2D" uid="uid://2tr5tn0aw3yx" path="res://Assets/Premade/Player/ship.png" id="1_usa63"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rmsw"]
+atlas = ExtResource("1_usa63")
+region = Rect2(0, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj1im"]
+atlas = ExtResource("1_usa63")
+region = Rect2(16, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuc33"]
+atlas = ExtResource("1_usa63")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x20fp"]
+atlas = ExtResource("1_usa63")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlxjv"]
+atlas = ExtResource("1_usa63")
+region = Rect2(0, 96, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6steu"]
+atlas = ExtResource("1_usa63")
+region = Rect2(16, 96, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sjg3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rmsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj1im")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuc33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x20fp")
+}],
+"loop": true,
+"name": &"left",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlxjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6steu")
+}],
+"loop": true,
+"name": &"right",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f0yqn"]
+radius = 7.55456
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(4.68, 4.68)
+script = ExtResource("1_logjw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sjg3v")
+animation = &"right"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(0, -2.77778)
+shape = SubResource("CircleShape2D_f0yqn")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
